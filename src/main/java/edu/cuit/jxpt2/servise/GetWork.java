@@ -3,7 +3,6 @@ package edu.cuit.jxpt2.servise;
 import edu.cuit.jxpt2.entity.Work;
 import edu.cuit.jxpt2.mapper.WorkMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,7 +22,7 @@ public class GetWork {
         this.work = work;
     }
 
-    public void workToDB(MultipartFile multipartFile) throws IOException, InterruptedException {
+    public void workToDB(MultipartFile multipartFile) throws IOException {
         work.setWork(multipartFile.getBytes());
         work.setName(multipartFile.getName());
         work.setTags("test");

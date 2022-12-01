@@ -1,10 +1,8 @@
 package edu.cuit.jxpt2.controller;
 
 import edu.cuit.jxpt2.entity.Work;
-import edu.cuit.jxpt2.mapper.WorkMapper;
 import edu.cuit.jxpt2.servise.GetWork;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
