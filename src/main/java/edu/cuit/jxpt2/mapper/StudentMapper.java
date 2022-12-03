@@ -11,7 +11,7 @@ public interface StudentMapper {
     void addStudent(Student student);
     @Delete("DELETE FROM student WHERE id=#{id}")
     void deleteStudent(Integer id);
-    @Update("UPDATE student SET id = #{id}, class_id  = #{class_id}, name = #{name} WHERE id = #{id}")
+    @Update("UPDATE student SET id = #{id}, class_id  = #{class_id}, name = #{name}, passwd = #{passwd} WHERE id = #{id}")
     void updateStudent(Student student);
     @Select("SELECT * FROM student WHERE id = #{id}")
     Student getStudentById(Integer id);

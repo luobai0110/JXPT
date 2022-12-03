@@ -5,6 +5,12 @@ import edu.cuit.jxpt2.mapper.StudentMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @SpringBootTest
 class Jxpt2ApplicationTests {
@@ -14,8 +20,10 @@ class Jxpt2ApplicationTests {
     public Student student;
     @Test
     void contextLoads() {
-        student = studentMapper.getStudentById(1000);
-        System.out.println(student.getName());
+        List<Student> students = studentMapper.getAllStudent();
+        for (Student s: students) {
+            System.out.println(s.toString());
+        }
     }
 
 }

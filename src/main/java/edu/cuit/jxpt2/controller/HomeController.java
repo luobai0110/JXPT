@@ -1,7 +1,7 @@
 package edu.cuit.jxpt2.controller;
 
-import edu.cuit.jxpt2.entity.Work;
-import edu.cuit.jxpt2.servise.GetWork;
+import edu.cuit.jxpt2.entity.Task;
+import edu.cuit.jxpt2.servise.GetTaskFile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +14,10 @@ import java.io.IOException;
 @Slf4j
 public class HomeController {
 
-    private final GetWork getWork;
+    private final GetTaskFile getTaskFile;
 
-    public HomeController(Work work, GetWork getWork) {
-        this.getWork = getWork;
+    public HomeController(Task task, GetTaskFile getTaskFile) {
+        this.getTaskFile = getTaskFile;
     }
 
     @GetMapping
@@ -34,7 +34,7 @@ public class HomeController {
     @ResponseBody
     public String fileUpload(@RequestParam(value = "file") MultipartFile multipartFile) throws IOException, InterruptedException {
         log.info(String.valueOf(multipartFile));
-        getWork.workToDB(multipartFile);
+        getTaskFile.workToDB(multipartFile);
         return "success";
     }
 }

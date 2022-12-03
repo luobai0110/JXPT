@@ -7,11 +7,11 @@ import java.util.List;
 
 @Mapper
 public interface ClassMapper {
-    @Insert("INSERT INTO Class (name, major_id, nums, t_id) values (#{name}, #{major_id}, #{nums}, #{t_id})")
+    @Insert("INSERT INTO Class (name, major_id, nums, grade) values (#{name}, #{major_id}, #{nums}, #{grade})")
     void addIClass(IClass Class);
     @Delete("DELETE FROM Class WHERE id=#{id}")
     void deleteClass(Integer id);
-    @Update("UPDATE Class SET name = #{name}, major_id = #{major_id}, t_id = #{t_id}, nums = #{nums} WHERE id = #{id}")
+    @Update("UPDATE Class SET name = #{name}, major_id = #{major_id}, nums = #{nums} WHERE id = #{id}")
     void updateClass(IClass Class);
     @Select("SELECT * FROM Class WHERE id = #{id}")
     Class getClassById(Integer id);
