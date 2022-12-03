@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-    xml:th="http://www.thymeleaf.org">
+    xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,19 +10,49 @@
     <title>登录</title>
 </head>
 <body>
-    <div class="layui-container">
-        <div class="layui-row">
-            <div class="layui-col-md6 info-box">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam veritatis rerum expedita, inventore soluta at totam. Ullam, quam libero dolore fugit, officia temporibus provident recusandae aliquid aut vero velit modi!
+    <div class="container parent">
+        <div class="layui-row loginfo" >
+            <div class="layui-col-md4">
+                问题不在于我们活多久，而在于我们做多少事
             </div>
-            <div class="layui-col-md3 layui-col-sm-12 layui-col-md-offset3 loginbox">
-                <div class="layui-panel">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, eius. A rerum incidunt aliquid voluptates ducimus animi cupiditate, esse expedita, excepturi, accusamus facilis nemo dolorem assumenda sit laudantium vel eaque?
+            <div class="layui-col-md4 layui-col-md-offset4 layui-card card">
+                <div class="layui-card-header card-header">
+                    <div style="margin: 20px">
+                        <h2>登录</h2>
+                    </div>
+                </div>
+                <div class="layui-card-body">
+                    <form action="#" method="post" class="layui-form " id="myForm">
+                        <div class="layui-form-item">
+                            <label for="username" class="layui-form-label" ></label>
+                            <input type="text" required lay-verify="required" placeholder="用户名" class="layui-input" id="username" name="username">
+                        </div>
+                        <div class="layui-form-item">
+                            <label for="passwd" class="layui-form-label"></label>
+                            <input type="password" required lay-verify="required" placeholder="密码" class="layui-input" id="passwd" name="password">
+                        </div>
+                        <div class="layui-form-item">
+                            <label for="remember" class="layui-form-label"></label>
+                            <input type="checkbox" name="remember" id="remember" lay-skin="primary" value="true" title="下次自动登录">
+                        </div>
+                        <div class="layui-form-item">
+                            <button class="layui-btn layui-btn-fluid layui-submit" >登录</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 <script src="../static/js/jquery.min.js"></script>
 <script src="../static/layui/layui.js"></script>
+<script>
+    $("#close").click(function(){
+        document.getElementById("info_box").style.visibility="hidden"
+    })
+    layui.use('form',function (){
+        let form = layui.form;
+
+    })
+</script>
 </body>
 </html>
