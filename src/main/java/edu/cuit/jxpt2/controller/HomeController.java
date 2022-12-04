@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-@Controller
+
 @RequestMapping("/")
 @Slf4j
 public class HomeController {
@@ -20,10 +20,7 @@ public class HomeController {
         this.getTaskFile = getTaskFile;
     }
 
-    @GetMapping
-    public String home() {
-        return "index";
-    }
+
 
     @GetMapping("getFile")
     public String getFile() {
@@ -31,7 +28,6 @@ public class HomeController {
     }
 
     @PostMapping("fileUpload")
-    @ResponseBody
     public String fileUpload(@RequestParam(value = "file") MultipartFile multipartFile) throws IOException, InterruptedException {
         log.info(String.valueOf(multipartFile));
         getTaskFile.workToDB(multipartFile);

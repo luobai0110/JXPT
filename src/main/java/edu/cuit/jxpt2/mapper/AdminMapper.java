@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface AdminMapper {
-    @Select("INSERT INTO admin VALUES (name = #{name})")
+    @Select("INSERT INTO admin VALUES (name = #{name}, passwd = #{passwd})")
     void addAdmin(Admin admin);
 
     @Delete("DELETE FROM admin WHERE id = #{id}")

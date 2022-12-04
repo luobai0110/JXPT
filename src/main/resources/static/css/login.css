@@ -1,10 +1,15 @@
+body {
+    background: url("https://bing.img.run/rand_uhd.php");
+    background-size: cover;
+}
+
 
 .card-header {
     text-align: center;
+
 }
 
 .loginfo{
-
     width: 100%;
     height: 500px;
     position: absolute;
@@ -16,8 +21,4 @@
 }
 .card .message {
     background: rgba(255,255,255,0.8);
-}
-
-body {
-    background: url("../img/KilimanjaroElephants_ZH-CN3779609103_1920x1080.jpg");
 }

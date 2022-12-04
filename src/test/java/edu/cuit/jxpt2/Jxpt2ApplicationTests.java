@@ -1,5 +1,6 @@
 package edu.cuit.jxpt2;
 
+import edu.cuit.jxpt2.entity.Human;
 import edu.cuit.jxpt2.entity.Student;
 import edu.cuit.jxpt2.mapper.StudentMapper;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,9 @@ import java.util.List;
 class Jxpt2ApplicationTests {
     @Autowired
     public StudentMapper studentMapper;
+
+    @Autowired
+    public Human human;
     @Autowired
     public Student student;
     @Test
@@ -26,4 +30,8 @@ class Jxpt2ApplicationTests {
         }
     }
 
+    @Test
+    void testHuman() {
+        
+    }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface StudentMapper {
-    @Insert("INSERT INTO student (id, class_id, name) values (#{id},#{class_id}, #{name})")
+    @Insert("INSERT INTO student (id, class_id, name, passwd) values (#{id},#{class_id}, #{name}, #{passwd})")
     void addStudent(Student student);
     @Delete("DELETE FROM student WHERE id=#{id}")
     void deleteStudent(Integer id);
