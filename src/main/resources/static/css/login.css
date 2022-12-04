@@ -1,11 +1,23 @@
-body{
-    background: linear-gradient(to bottom right,white,pink);
-}
 
 .card-header {
     text-align: center;
 }
 
-.card {
+.loginfo{
+
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.card .message {
     background: rgba(255,255,255,0.8);
+}
+
+body {
+    background: url("../img/KilimanjaroElephants_ZH-CN3779609103_1920x1080.jpg");
 }
