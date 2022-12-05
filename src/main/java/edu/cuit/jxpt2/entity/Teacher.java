@@ -1,13 +1,12 @@
 package edu.cuit.jxpt2.entity;
 
+import edu.cuit.jxpt2.interf.People;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class Teacher extends Human {
+public class Teacher implements People {
     private Integer id;
     private String name;
     private Integer school_id;

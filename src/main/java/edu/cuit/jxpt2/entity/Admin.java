@@ -1,13 +1,12 @@
 package edu.cuit.jxpt2.entity;
 
+import edu.cuit.jxpt2.interf.People;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@EqualsAndHashCode(callSuper = true)
-public class Admin extends Human {
+public class Admin implements People {
     private String name;
     private Integer id;
     private String passwd;

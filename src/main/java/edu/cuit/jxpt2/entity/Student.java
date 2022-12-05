@@ -1,17 +1,14 @@
 package edu.cuit.jxpt2.entity;
 
+import edu.cuit.jxpt2.interf.People;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 @Component
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class Student extends Human {
+@Primary
+public class Student implements People {
     private Integer id;
     private Integer class_id;
     private String name;

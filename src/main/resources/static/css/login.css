@@ -19,6 +19,13 @@ body {
     right: 0;
     margin: auto;
 }
-.card .message {
-    background: rgba(255,255,255,0.8);
+.message, .card {
+    background: rgba(255,255,255,90%);
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 75%);
+}
+
+.card>div{
+    background: rgba(255,255,255,0);
+    box-shadow: initial;
 }
