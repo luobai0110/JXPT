@@ -9,4 +9,5 @@ public class Course {
     private Integer id;
     private String name;
     private Integer major_id;
+    private String grade;
 }

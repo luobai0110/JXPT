@@ -62,4 +62,11 @@ public class LoginController {
         }
         return modelAndView;
     }
+
+    @GetMapping("/logout")
+    public ModelAndView logout(@RequestParam HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return new ModelAndView("index");
+    }
 }
