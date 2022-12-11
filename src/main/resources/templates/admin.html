@@ -3,8 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>欢迎</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
+<style>
+    .card{
+        margin: 10px;
+    }
+</style>
 <body>
+<div class="container-fluid">
+<!--    顶部导航-->
+    <div class="row">
+        <ul class="nav bg-light justify-content-end bg-black">
+            <li class="nav-item" href="">
+                <a href="#" class="nav-link">temp1</a>
+            </li>
+            <li class="nav-item" href="">
+                <a href="#" class="nav-link">temp2</a>
+            </li>
+            <li class="nav-item" href="">
+                <a href="#" class="nav-link">temp3</a>
+            </li>
+        </ul>
+    </div>
+<!--    侧边栏-->
+    <div class="offcanvas show offcanvas-start" style="width: 15%">
+        <div class="offcanvas-header">
+            <div id="user">
+                <img src="#" alt="." id="userHeadshot">
+                <p id="userName"></p>
+            </div>
+        </div>
+        <hr>
+        <div class="offcanvas-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-grid">
+                    <button class="btn btn-block" id="#schools">学院</button>
+                </li>
+                <li class="list-group-item d-grid">
+                    <button class="btn btn-block" id="teachers">教职工</button>
+                </li>
+                <li class="list-group-item d-grid">
+                    <button class="btn btn-block" id="majors">专业</button>
+                </li>
+                <li class="list-group-item d-grid">
+                    <button class="btn btn-block" id="t_classes">教学班</button>
+                </li>
+                <li class="list-group-item d-grid">
+                    <button class="btn btn-block" id="students">学生</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--    内容部分-->
 
+    <div class="layui-container">
+        <div class="row">
+            <div class="col-md-10 offset-md-2">
+                <div class="row" id="contents"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/admin.js"></script>
 </body>
 </html>

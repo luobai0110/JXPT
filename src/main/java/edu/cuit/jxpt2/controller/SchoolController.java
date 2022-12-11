@@ -2,22 +2,37 @@ package edu.cuit.jxpt2.controller;
 
 import edu.cuit.jxpt2.entity.School;
 import edu.cuit.jxpt2.mapper.SchoolMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/school")
 public class SchoolController {
 
-    private SchoolMapper schoolMapper;
+    private final SchoolMapper schoolMapper;
     public SchoolController(SchoolMapper schoolMapper) {
         this.schoolMapper = schoolMapper;
     }
-    @GetMapping
+    @GetMapping("/schools")
+    @ResponseBody
     public List<School> getSchools() {
         return schoolMapper.getAllSchool();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public School getSchool(@PathVariable Integer id) {
+        try {
+            return schoolMapper.getSchoolById(id);
+        } catch (NullPointerException nullPointerException ) {
+            return null;
+        }
+    }
+
+    @GetMapping("/add")
+    public String addSchool() {
+        return "addSchool";
     }
 }

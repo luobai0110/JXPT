@@ -1,12 +1,10 @@
 package edu.cuit.jxpt2.controller;
 
-import com.fasterxml.jackson.databind.ext.SqlBlobSerializer;
 import edu.cuit.jxpt2.entity.Course;
 import edu.cuit.jxpt2.servise.CourseDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 
 import java.util.List;
 
@@ -63,4 +61,5 @@ public class CourseController {
         modelAndView.setStatus(HttpStatus.OK);
         return modelAndView;
     }
+
 }

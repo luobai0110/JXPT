@@ -64,7 +64,7 @@ public class LoginController {
     }
 
     @GetMapping("/logout")
-    public ModelAndView logout(@RequestParam HttpServletRequest request) {
+    public ModelAndView logout(HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.invalidate();
         return new ModelAndView("index");

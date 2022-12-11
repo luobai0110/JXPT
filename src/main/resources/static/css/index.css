@@ -21,7 +21,7 @@ a {
 }
 
 .head_nav {
-    background-image: url("/img/citu_head_bg.png");
+    background-image: url('/img/citu_head_bg.png');
     height: 100px;
     line-height: 100px;
 }
