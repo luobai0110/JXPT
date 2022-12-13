@@ -5,19 +5,16 @@ import jakarta.servlet.http.HttpSession;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
 @Aspect
 @Component
 public class Auth {
 
-    @Pointcut("execution(* edu.cuit.jxpt2.controller.*.getView(..)))")
+    @Pointcut("execution(* edu.cuit.jxpt2.controller.*.*(.. ))")
     public void auth(){}
 //    登录验证
     @Around("auth()")
