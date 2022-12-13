@@ -1,14 +1,14 @@
 package edu.cuit.jxpt2.entity;
 
-import edu.cuit.jxpt2.interf.People;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class Teacher implements People {
+public class TClass {
     private Integer id;
+    private Integer teacherId;
     private String name;
-    private Integer schoolId;
-    private String passwd;
+    private Integer courseId;
+    private Integer classId;
 }

@@ -32,6 +32,9 @@ public class LoginImpl {
         } else if (identity.equals("student")) {
             people = studentMapper.getStudentById(userid);
             return people;
+        } else if (identity.equals("admin")){
+            people = adminMapper.getAdminById(userid);
+            return people;
         } else {
             return null;
         }

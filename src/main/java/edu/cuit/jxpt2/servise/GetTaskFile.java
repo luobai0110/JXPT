@@ -23,7 +23,7 @@ public class GetTaskFile {
         task.setWork(multipartFile.getBytes());
         task.setName(multipartFile.getName());
         task.setTags("test");
-        task.setTeacher_id(1);
+        task.setTeacherId(1);
         taskMapper.addWork(task);
     }
 }

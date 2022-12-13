@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class Course {
     private Integer id;
     private String name;
-    private Integer major_id;
+    private Integer majorId;
     private String grade;
 }

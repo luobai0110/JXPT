@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/login")
 @Slf4j
@@ -17,29 +19,36 @@ public class LoginController {
 
     private final LoginImpl loginImpl;
 
-    private final People people;
 
 
-    public LoginController(LoginImpl loginImpl, People people) {
+    public LoginController(LoginImpl loginImpl) {
         this.loginImpl = loginImpl;
-        this.people = people;
     }
 
     @PostMapping
     public ModelAndView login(@RequestParam(name = "userid") String userid,
                               @RequestParam(name = "passwd") String password,
                               @RequestParam(name = "identity") String identity,
-                              @RequestParam(name = "remember", required = false) String[] re,
+                              @RequestParam(name = "remember", required = false)  String[] re,
                               HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
-        if (loginImpl.login(Integer.valueOf(userid), password, identity) != null) {
-            modelAndView.addObject(people);
+        People people = loginImpl.login(Integer.valueOf(userid), password, identity);
+        if (people != null) {
+            session.setAttribute("userid", people.getId());
+            session.setAttribute("identity", identity);
+            if (re[0] == null) session.setAttribute("auto",false);
             modelAndView.setViewName("home");
-            if (re != null && re[0].equals("true")) {
-                session.setAttribute("userid", userid);
+            if (re[0]  != null && re[0].equals("true")) {
                 session.setAttribute("username", people.getName());
                 session.setAttribute("passwd", people.getPasswd());
-                session.setAttribute("identity", identity);
+                session.setAttribute("auto",true);
+            }
+            if (identity.equals("admin")) {
+                modelAndView.setViewName("admin");
+                return modelAndView;
+            } else if (identity.equals("teacher")) {
+                modelAndView.setViewName("teacher");
+                return modelAndView;
             }
 
             return modelAndView;
@@ -47,18 +56,21 @@ public class LoginController {
         modelAndView.setStatus(HttpStatus.NOT_FOUND);
         return modelAndView;
     }
-
+//    自动登录
     @GetMapping
-    public ModelAndView turnToLogin(HttpServletRequest request, @RequestParam(required = false) HttpSession httpSession) {
-        HttpSession session = httpSession;
-        ModelAndView modelAndView = new ModelAndView();
-        if (httpSession == null) session = request.getSession();
-        if (session.getAttribute("userid") != null &&  loginImpl.login(Integer.valueOf((String) session.getAttribute("userid")),
-                (String) session.getAttribute("passwd")
-                , (String) session.getAttribute("identity")) != null) {
-            modelAndView.setViewName("home");
-        } else {
-            modelAndView.setViewName("login");
+    public ModelAndView autoLogin(HttpServletRequest request, HttpSession httpSession) {
+        ModelAndView modelAndView = new ModelAndView("login");
+//        验证是否为第一次登录
+        if (httpSession.getAttribute("userid") == null) return modelAndView;
+        httpSession = request.getSession();
+        String auto = null;
+        if (httpSession.getAttribute("auto")!=null) auto = (String) httpSession.getAttribute("auto");
+        if (!Objects.equals(auto, "true")) return modelAndView;
+        Integer userId = (Integer) httpSession.getAttribute("userid");
+        String passwd = (String) httpSession.getAttribute("passwd");
+        String identity = (String) httpSession.getAttribute("identity");
+        if (loginImpl.login(userId, passwd, identity) != null) {
+            modelAndView.setViewName(identity);
         }
         return modelAndView;
     }

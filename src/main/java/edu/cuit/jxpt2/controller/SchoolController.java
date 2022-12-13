@@ -4,6 +4,7 @@ import edu.cuit.jxpt2.entity.School;
 import edu.cuit.jxpt2.mapper.SchoolMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -32,7 +33,16 @@ public class SchoolController {
     }
 
     @GetMapping("/add")
-    public String addSchool() {
+    public String addSchoolView() {
         return "addSchool";
+    }
+
+    @PostMapping("/addSchool")
+    @ResponseBody
+    public ModelAndView addSchool(School school) {
+        schoolMapper.addSchool(school);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("admin");
+        return modelAndView;
     }
 }

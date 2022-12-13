@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../static/layui/css/layui.css" th:href="@{/layui/css/layui.css}" >
-    <title th:>欢迎:></title>
+    <link rel="stylesheet" href="/layui/css/layui.css" >
+    <title>欢迎</title>
 </head>
 <body>
 <!--第一个面板  顶部-->
@@ -31,7 +30,7 @@
             <dl class="layui-nav-child">
                 <dd><a href="#">修改信息</a></dd>
                 <dd><a href="#">安全管理</a></dd>
-                <dd><a th:href="@{/login/log out}">退出</a></dd>
+                <dd><a href="/login/logout" >退出</a></dd>
             </dl>
         </li>
     </ul>
@@ -118,24 +117,24 @@
         </div>
     </div>
 </div>
-<script src="../static/layui/layui.js" th:src="@{/layui/layui.js}"></script>
-<script>
-    layui.use('laydate', function(){
-        const laydate = layui.laydate;
+<script src="/layui/layui.js" ></script>
+<!--<script>-->
+<!--    layui.use('laydate', function(){-->
+<!--        const laydate = layui.laydate;-->
 
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#test1' //指定元素
-        });
-    });
+<!--        //执行一个laydate实例-->
+<!--        laydate.render({-->
+<!--            elem: '#test1' //指定元素-->
+<!--        });-->
+<!--    });-->
 
-    laydate.render({
-        elem: '#test2'
-        ,position: 'static'
-        ,change: function(value, date){ //监听日期被切换
-            lay('#testView').html(value);
-        }
-    });
-</script>
+<!--    laydate.render({-->
+<!--        elem: '#test2'-->
+<!--        ,position: 'static'-->
+<!--        ,change: function(value, date){ //监听日期被切换-->
+<!--            lay('#testView').html(value);-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
 </body>
 </html>

@@ -7,11 +7,11 @@ import java.util.List;
 
 @Mapper
 public interface MajorMapper {
-    @Insert("INSERT INTO Major (name, school_id) values (#{name}, #{school_id})")
+    @Insert("INSERT INTO Major (name, schoolId) values (#{name}, #{schoolId})")
     void addMajor(Major Major);
     @Delete("DELETE FROM Major WHERE id=#{id}")
     void deleteMajor(Integer id);
-    @Update("UPDATE Major SET name = #{name}, school_id = #{school_id} WHERE id = #{id}")
+    @Update("UPDATE Major SET name = #{name}, schoolId = #{schoolId} WHERE id = #{id}")
     void updateMajor(Major Major);
     @Select("SELECT * FROM Major WHERE id = #{id}")
     Major getMajorById(Integer id);
