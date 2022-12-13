@@ -5,13 +5,14 @@ import edu.cuit.jxpt2.mapper.MajorMapper;
 import edu.cuit.jxpt2.servise.dao.CourseDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/course")
 public class CourseController {
 
@@ -25,12 +26,19 @@ public class CourseController {
         this.courseDao = courseDao;
     }
 
+    @GetMapping
+    public String getView() {
+        return "courses";
+    }
+
     @GetMapping("/courses")
+    @ResponseBody
     public List<Course> getAllCourses() {
         return courseDao.getAllCCourses();
     }
 
     @GetMapping("/{id}")
+    @ResponseBody
     public ModelAndView getCourse(@PathVariable Integer id, ModelAndView modelAndView) {
         Course course = courseDao.getCourseById(id);
         modelAndView.setViewName("course");
@@ -41,6 +49,7 @@ public class CourseController {
     }
 
     @DeleteMapping("{id}")
+    @ResponseBody
     public ModelAndView deleteCourse(@PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("courses");
         try {
@@ -54,6 +63,7 @@ public class CourseController {
     }
 
     @DeleteMapping("/courses")
+    @ResponseBody
     public ModelAndView deleteAllCourse(ModelAndView modelAndView) {
         try {
             courseDao.deleteAllCourse();
@@ -66,6 +76,7 @@ public class CourseController {
     }
 
     @PostMapping("/add")
+    @ResponseBody
     public ModelAndView addCourse(Course course) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("admin");
@@ -74,6 +85,7 @@ public class CourseController {
     }
 
     @PutMapping("/update")
+    @ResponseBody
     public void updateCourse(HttpServletRequest request) {
 
     }

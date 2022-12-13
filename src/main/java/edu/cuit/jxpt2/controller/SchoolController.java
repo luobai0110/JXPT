@@ -45,4 +45,9 @@ public class SchoolController {
         modelAndView.setViewName("admin");
         return modelAndView;
     }
+
+    @GetMapping
+    public String getView() {
+        return "schools";
+    }
 }

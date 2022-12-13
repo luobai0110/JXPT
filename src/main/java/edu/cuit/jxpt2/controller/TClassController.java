@@ -31,4 +31,9 @@ public class TClassController {
         else if (identity.equals("teacher")) return tClass2Mapper.getAllTClass2ByTeacherId((Integer) session.getAttribute("userid"));
         else return null;
     }
+
+    @GetMapping
+    public String getView() {
+        return null;
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import edu.cuit.jxpt2.entity.School;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -28,10 +29,10 @@ public class AdminController {
 
 
     @GetMapping
-    public String getView(Model model) {
+    @ResponseBody
+    public ModelAndView getView() {
         List<School> schools = schoolMapper.getAllSchool();
-        model.addAttribute("schools",schools);
-        return "admin";
+        return new ModelAndView("admin","school",schools);
     }
     @GetMapping("/info")
     @ResponseBody

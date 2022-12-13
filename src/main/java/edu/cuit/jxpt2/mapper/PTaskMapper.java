@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface PTaskMapper {
-    @Insert("INSERT INTO publishTask (name, description, deadline, mark, teacherId) VALUES (#{name},#{descrition}, #{date},#{mark},#{teacherId})")
+    @Insert("INSERT INTO publishTask (name, description, deadline, mark, teacherId) VALUES (#{name},#{descrition}, #{deadline},#{mark},#{teacherId})")
     void addPTask(PTask pTask);
     @Delete("DELETE FROM publishTask WHERE id = #{id}")
     void deletePTask(Integer id);
@@ -19,4 +19,6 @@ public interface PTaskMapper {
     List<PTask> getAllPTask();
     @Select("SELECT * FROM publishTask WHERE name LIKE CONCAT('%',#{name},'%')")
     List<PTask> getPTaskByName(String name);
+    @Select("SELECT * FROM publishtask WHERE teacherId = #{teacherId}")
+    List<PTask> getTaskByTeacherId(Integer id);
 }

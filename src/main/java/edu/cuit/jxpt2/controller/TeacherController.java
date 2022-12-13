@@ -24,4 +24,9 @@ public class TeacherController {
         Teacher teacher = teacherMapper.getTeacherById(id);
         return new ModelAndView("info","teacher",teacher);
     }
+
+    @GetMapping
+    public String getView() {
+        return "teacher";
+    }
 }
