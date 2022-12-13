@@ -5,10 +5,11 @@
     <title>teacher</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
 </head>
 </style>
 <body>
-<div class="container">
+<div class="container-fluid">
     <div class="row myHeader" >
         <div class="head_nav" >
             <div class="logo_content">
@@ -25,10 +26,10 @@
     <div class="row">
         <ul class="nav bg-light justify-content-end">
             <li class="nav-item" href="">
-                <a href="#" class="nav-link">temp1</a>
+                <a href="/" class="nav-link">发布新作业</a>
             </li>
             <li class="nav-item" href="">
-                <a href="#" class="nav-link">temp2</a>
+                <a href="/teacher/info" class="nav-link">个人中心</a>
             </li>
             <li class="nav-item" href="">
                 <a href="/login/logout" class="nav-link">注销登录</a>
@@ -38,22 +39,24 @@
     <!--    侧边栏-->
     <div class="row" >
         <div class="col-md-2">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item d-grid">
-                    <button class="btn btn-block" id="t_class">教授班级</button>
-                </li>
-                <li class="list-group-item d-grid">
-                    <button class="btn btn-block" id="task" onclick="getContents(this.id)">作业管理</button>
-                </li>
-            </ul>
+            <div class="layui-panel">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-grid">
+                        <button class="btn btn-block" id="t_class">教授班级</button>
+                    </li>
+                    <li class="list-group-item d-grid">
+                        <button class="btn btn-block" id="task" onclick="getContents(this.id)">作业管理</button>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!--    内容部分-->
-        <div class="col-md-9 offset-md-1">
+        <div class="col-md-10">
             <div class="row" >
-                <table class="table" id="contents">
-                    <thead id="theadParent">
+                <table class="table table-striped" id="contents">
+                    <thead id="tHeadParent">
                     </thead>
-                    <tbody id="tbodyParent">
+                    <tbody id="tBodyParent">
                     </tbody>
                 </table>
             </div>

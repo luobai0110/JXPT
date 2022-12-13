@@ -1,37 +1,33 @@
 $("#t_class").ready(function () {
     $.get("/t_class/t_classes",function (data,status) {
         const tClass2 = JSON.parse(JSON.stringify(data));
-        let nTds = createTd(4)
-        nTds[0].innerHTML="编号";
-        nTds[1].innerHTML="专业";
-        nTds[2].innerHTML="班级";
-        nTds[3].innerHTML="操作";
-        addBody("theadParent", nTds);
+        let titleName=["编号","专业","课程","班级","操作"]
+        addContent("tHeadParent",titleName, "title");
         for (let i = 0 ; i < tClass2.length; i++) {
-            const nTr = document.createElement("tr");
-            let nTds = createTd(4);
-            nTds[0].innerHTML=tClass2[i].tclassId;
-            nTds[1].innerHTML=tClass2[i].majorName;
-            nTds[2].innerHTML=tClass2[i].tclassName;
-            const nA=document.createElement("a");
-            nA.href="/t_class/" + tClass2[i].tclassId;
-            nTds[3].appendChild(nA);
-            addBody("tbodyParent",nTds);
+            let nTds = [tClass2[i].tclassId,tClass2[i].majorName,tClass2[i].courseName,tClass2[i].tclassName,tClass2[i].tclassId];
+            addContent("tBodyParent",nTds, "body");
         }
     })
 })
-function createTd(length) {
-    let nTds = new Array(length);
-    for (let i = 0; i < length; i++) {
-        nTds[i]=document.createElement("td");
-    }
-    return nTds;
-}
 
-function addBody(parent, nTds) {
+function addContent(parent, nTds, type) {
     const nTr = document.createElement("tr");
-    for (let i = 0; i < 4;i++) {
-        nTr.appendChild(nTds[i]);
+    let nA = null
+    let nTd = null
+    for (let i = 0; i < nTds.length;i++) {
+        if (type === "title")  nTd = document.createElement("th");
+        else  nTd = document.createElement("td");
+        if (i === nTds.length - 1 && type !== "title") {
+            nA = document.createElement("a")
+            nA.href="/t_class/" + nTds[nTds.length]
+            nA.innerHTML="查看"
+            nTd.appendChild(nA);
+            nTr.appendChild(nTd);
+            break;
+        }
+        nTd.innerHTML=nTds[i];
+        nTr.appendChild(nTd);
     }
     document.getElementById(parent).appendChild(nTr);
 }
+

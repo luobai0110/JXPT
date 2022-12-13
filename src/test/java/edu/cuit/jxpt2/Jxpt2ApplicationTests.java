@@ -36,8 +36,6 @@ class Jxpt2ApplicationTests {
     }
     @Test
     void test() {
-        boolean t = true;
-        Object s = t;
-        if (Boolean.parseBoolean(s.toString())) System.out.println("test");
+
     }
 }
