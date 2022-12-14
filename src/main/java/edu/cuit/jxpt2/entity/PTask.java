@@ -10,9 +10,15 @@ import java.util.Date;
 @Component
 public class PTask {
     private String description;
-    private Date date;
+    private Date deadline;
     private String name;
     private Integer id;
     private Boolean mark;
     private Integer teacherId;
+    private Integer tClassId;
+
+    public void setMask(String mask) {
+        this.mark = Boolean.parseBoolean(mask);
+
+    }
 }

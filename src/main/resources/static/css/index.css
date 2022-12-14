@@ -20,23 +20,3 @@ a {
     font-size: 14px;
 }
 
-.head_nav {
-    background-image: url('/img/citu_head_bg.png');
-    height: 100px;
-    line-height: 100px;
-}
-
-.logo_img {
-    height: 58px;
-}
-
-.logo_box {
-    padding-left: 20px;
-    font-size: 38px;
-    color: white;
-}
-
-.logo_box span {
-    vertical-align: middle;
-}
-

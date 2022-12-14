@@ -4,6 +4,7 @@ package edu.cuit.jxpt2;
 import edu.cuit.jxpt2.entity.Student;
 import edu.cuit.jxpt2.entity.TClass;
 import edu.cuit.jxpt2.entity.TClass2;
+import edu.cuit.jxpt2.mapper.PTaskMapper;
 import edu.cuit.jxpt2.mapper.StudentMapper;
 import edu.cuit.jxpt2.mapper.TClass2Mapper;
 import edu.cuit.jxpt2.mapper.TClassMapper;
@@ -19,7 +20,8 @@ class Jxpt2ApplicationTests {
     public StudentMapper studentMapper;
     @Autowired
     public TClass2Mapper tClassMapper;
-
+    @Autowired
+    public PTaskMapper pTaskMapper;
     @Autowired
     public Student student;
     @Test

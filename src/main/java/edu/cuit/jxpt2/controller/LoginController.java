@@ -63,9 +63,9 @@ public class LoginController {
 //        验证是否为第一次登录
         if (httpSession.getAttribute("userid") == null) return modelAndView;
         httpSession = request.getSession();
-        String auto = null;
-        if (httpSession.getAttribute("auto")!=null) auto = (String) httpSession.getAttribute("auto");
-        if (!Objects.equals(auto, "true")) return modelAndView;
+        Boolean auto = null;
+        if (httpSession.getAttribute("auto")!=null) auto = (boolean) httpSession.getAttribute("auto");
+        if (Boolean.FALSE.equals(auto)) return modelAndView;
         Integer userId = (Integer) httpSession.getAttribute("userid");
         String passwd = (String) httpSession.getAttribute("passwd");
         String identity = (String) httpSession.getAttribute("identity");

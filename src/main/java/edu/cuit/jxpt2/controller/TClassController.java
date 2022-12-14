@@ -1,12 +1,12 @@
 package edu.cuit.jxpt2.controller;
 
-import edu.cuit.jxpt2.entity.TClass;
 import edu.cuit.jxpt2.entity.TClass2;
 import edu.cuit.jxpt2.mapper.TClass2Mapper;
 import edu.cuit.jxpt2.mapper.TClassMapper;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,6 +23,11 @@ public class TClassController {
         this.tClass2Mapper = tClass2Mapper;
         this.tClassMapper = tClassMapper;
     }
+
+    @GetMapping
+    public String getView() {
+        return null;
+    }
     @GetMapping("/t_classes")
     @ResponseBody
     public List<TClass2> getTClasses(HttpSession session) {
@@ -31,4 +36,10 @@ public class TClassController {
         else if (identity.equals("teacher")) return tClass2Mapper.getAllTClass2ByTeacherId((Integer) session.getAttribute("userid"));
         else return null;
     }
+
+    @GetMapping("/{id}")
+    public TClass2 getTClass2(@PathVariable Integer id) {
+        return tClass2Mapper.getTClass2ByTClassId(id);
+    }
+
 }

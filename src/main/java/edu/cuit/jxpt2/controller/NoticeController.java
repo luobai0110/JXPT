@@ -2,15 +2,13 @@ package edu.cuit.jxpt2.controller;
 
 import edu.cuit.jxpt2.entity.Notice;
 import edu.cuit.jxpt2.mapper.NoticeMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/notice")
 public class NoticeController {
 
@@ -20,6 +18,7 @@ public class NoticeController {
         this.noticeMapper = noticeMapper;
     }
     @GetMapping("/notices")
+    @ResponseBody
     public List<Notice> getNotice() {
         try {
             return noticeMapper.getAllNotice();
@@ -29,9 +28,8 @@ public class NoticeController {
     }
 
     @GetMapping
-    public ModelAndView noticeView() {
-        ModelAndView modelAndView = new ModelAndView("notice");
-        return modelAndView;
+    public String getView() {
+        return "notices";
     }
 
     @GetMapping("{id}")
