@@ -1,8 +1,9 @@
 package edu.cuit.jxpt2.controller;
 
-import com.fasterxml.jackson.databind.ext.SqlBlobSerializer;
 import edu.cuit.jxpt2.entity.Course;
-import edu.cuit.jxpt2.servise.CourseDAO;
+import edu.cuit.jxpt2.mapper.MajorMapper;
+import edu.cuit.jxpt2.servise.dao.CourseDAO;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,7 +17,11 @@ public class CourseController {
 
     private final CourseDAO courseDao;
 
-    public CourseController(CourseDAO courseDao) {
+    private final MajorMapper majorMapper;
+
+
+    public CourseController(CourseDAO courseDao, MajorMapper majorMapper) {
+        this.majorMapper = majorMapper;
         this.courseDao = courseDao;
     }
 
@@ -26,8 +31,13 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public Course getCourse(@PathVariable Integer id) {
-        return courseDao.getCourseById(id);
+    public ModelAndView getCourse(@PathVariable Integer id, ModelAndView modelAndView) {
+        Course course = courseDao.getCourseById(id);
+        modelAndView.setViewName("course");
+        modelAndView.addObject("majorName", majorMapper.getMajorById(course.getMajorId()).getName());
+        modelAndView.addObject("courseName", course.getName());
+        modelAndView.addObject("courseId",course.getId());
+        return modelAndView;
     }
 
     @DeleteMapping("{id}")
@@ -55,12 +65,16 @@ public class CourseController {
         }
     }
 
-    @PostMapping()
+    @PostMapping("/add")
     public ModelAndView addCourse(Course course) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("admin");
         courseDao.addCourse(course);
-        modelAndView.setStatus(HttpStatus.OK);
         return modelAndView;
+    }
+
+    @PutMapping("/update")
+    public void updateCourse(HttpServletRequest request) {
+
     }
 }

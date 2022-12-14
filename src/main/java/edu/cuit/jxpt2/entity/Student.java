@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Primary
 public class Student implements People {
     private Integer id;
-    private Integer class_id;
+    private Integer classId;
     private String name;
     private String passwd;
 }

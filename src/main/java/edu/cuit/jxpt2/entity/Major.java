@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component;
 public class  Major {
     private Integer id;
     private String name;
-    private Integer school_id;
+    private Integer schoolId;
 }

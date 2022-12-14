@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN"
+    xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>course</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-
+<div class="row myHeader" >
+    <div class="head_nav">
+        <div class="logo_content">
+            <div class="logo_box">
+                <img src="/img/citu_nav_logo.png" class="logo_img" alt="">
+                <span>课程中心</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form action="#">
+                <div class="card">
+                    <div class="card-header">
+                        <label for="majorName">专业名称</label>
+                        <input type="text" th:value="${majorName}" class="form-control" id="majorName" readonly>
+                    </div>
+                    <div class="card-body">
+                        <label for="courseName">课程名称</label>
+                        <input type="text" th:value="${courseName}" class="form-control"  id="courseName" readonly>
+                        <label for="courseId">课程编号</label>
+                        <input type="text" th:value="${courseId}" class="form-control" id="courseId" readonly>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
-<script>
-
-</script>
 </html>

@@ -10,6 +10,6 @@ public class Task {
     private String name;
     private byte[] work;
     private String tags;
-    private Integer teacher_id;
-    private Integer publish_task_id;
+    private Integer teacherId;
+    private Integer publishTaskId;
 }

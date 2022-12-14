@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class IClass {
     private Integer id;
-    private Integer major_id;
+    private Integer majorId;
     private Integer nums;
-    private Integer t_id;
+    private Integer tId;
 }

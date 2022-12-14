@@ -14,5 +14,5 @@ public class PTask {
     private String name;
     private Integer id;
     private Boolean mark;
-    private Integer teacher_id;
+    private Integer teacherId;
 }

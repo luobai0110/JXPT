@@ -1,4 +1,4 @@
-package edu.cuit.jxpt2.servise;
+package edu.cuit.jxpt2.servise.dao;
 
 import edu.cuit.jxpt2.entity.Course;
 import edu.cuit.jxpt2.mapper.CourseMapper;
