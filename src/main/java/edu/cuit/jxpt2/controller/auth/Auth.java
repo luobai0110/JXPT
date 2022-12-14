@@ -14,7 +14,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class Auth {
 
-    @Pointcut("execution(* edu.cuit.jxpt2.controller.*.*(.. ))")
+    @Pointcut("execution(* edu.cuit.jxpt2.controller.*.getView(..))")
     public void auth(){}
 //    登录验证
     @Around("auth()")

@@ -20,20 +20,12 @@ public class AdminController {
 
     private final Admin admin;
 
-    private final SchoolMapper schoolMapper;
 
-    public AdminController(Admin admin, SchoolMapper schoolMapper) {
+    public AdminController(Admin admin) {
         this.admin = admin;
-        this.schoolMapper = schoolMapper;
     }
 
 
-    @GetMapping
-    @ResponseBody
-    public ModelAndView getView() {
-        List<School> schools = schoolMapper.getAllSchool();
-        return new ModelAndView("admin","school",schools);
-    }
     @GetMapping("/info")
     @ResponseBody
     public Admin getAdmin(HttpServletRequest request) {
